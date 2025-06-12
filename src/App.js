@@ -102,6 +102,7 @@ function SearchBar({ location, setLocation }) {
 
   useEffect(() => {
     localStorage.setItem("location", location);
+
     inputEl.current.focus();
     const callback = function (e) {
       if (e.key === "Enter") setLocation("");
@@ -111,7 +112,7 @@ function SearchBar({ location, setLocation }) {
     return function () {
       document.removeEventListener("keydown", callback);
     };
-  }, [location]);
+  }, [location, setLocation]);
   return (
     <input
       type="text"
